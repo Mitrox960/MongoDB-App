@@ -3,14 +3,16 @@
     "",
     "\\app",
     "\\app\\api",
-    "\\app\\api-doc",
-    "\\app\\api\\movies",
+    "\\app\\api\\auth",
+    "\\app\\api\\auth\\login",
+    "\\app\\api\\auth\\logout",
+    "\\app\\api\\auth\\refresh",
+    "\\app\\api\\auth\\signup",
     "\\app\\api\\movies\\[idMovie]",
     "\\app\\api\\movies\\[idMovie]\\comments",
     "\\app\\api\\movies\\[idMovie]\\comments\\[idComment]",
-    "\\app\\api\\theaters",
     "\\app\\api\\theaters\\[idTheater]"
   ],
-  "SelectedNode": "\\app\\api\\theaters\\[idTheater]\\route.ts",
+  "SelectedNode": "\\middleware.ts",
   "PreviewInSolutionExplorer": false
 }
