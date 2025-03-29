@@ -26,7 +26,7 @@ import { Db, MongoClient, ObjectId } from 'mongodb';
  *       500:
  *         description: Internal Server Error
  */
-export async function GET(request: Request, { params }: { params: { idTheater: string } }) {
+export async function GET(request: Request, { params }: { params: any }) {
   try {
     const client: MongoClient = await clientPromise;
     const db: Db = client.db('sample_mflix');

@@ -119,7 +119,7 @@ export async function DELETE(request: Request, { params }: any): Promise<NextRes
  *       404:
  *         description: Movie not found
  */
-export async function PUT(request: Request, { params }: { params: { idMovie: string } }): Promise<NextResponse> {
+export async function PUT(request: Request, { params }: { params: any }): Promise<NextResponse> {
   try {
     const client: MongoClient = await clientPromise;
     const db: Db = client.db('sample_mflix');
