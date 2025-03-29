@@ -3,13 +3,14 @@
     "",
     "\\app",
     "\\app\\api",
+    "\\app\\api-doc",
     "\\app\\api\\movies",
-    "\\app\\app-demo",
-    "\\lib",
-    "\\pages",
-    "\\public",
-    "\\styles"
+    "\\app\\api\\movies\\[idMovie]",
+    "\\app\\api\\movies\\[idMovie]\\comments",
+    "\\app\\api\\movies\\[idMovie]\\comments\\[idComment]",
+    "\\app\\api\\theaters",
+    "\\app\\api\\theaters\\[idTheater]"
   ],
-  "SelectedNode": "\\app\\api\\movies\\route.ts",
+  "SelectedNode": "\\app\\api\\theaters\\[idTheater]\\route.ts",
   "PreviewInSolutionExplorer": false
 }
