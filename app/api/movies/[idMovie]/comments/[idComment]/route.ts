@@ -86,7 +86,7 @@ export async function GET(request: Request, { params }: { params: any }): Promis
  *     tags:
  *       - Comments
  */
-export async function DELETE(request: Request, { params }: { params: { idMovie: string, idComment: string } }) {
+export async function DELETE(request: Request, { params }: { params: any }) {
   try {
     const client: MongoClient = await clientPromise;
     const db: Db = client.db('sample_mflix');
@@ -152,7 +152,7 @@ export async function DELETE(request: Request, { params }: { params: { idMovie: 
  *     tags:
  *       - Comments
  */
-export async function PUT(request: Request, { params }: { params: { idMovie: string, idComment: string } }) {
+export async function PUT(request: Request, { params }: { params: any }) {
   try {
     const client: MongoClient = await clientPromise;
     const db: Db = client.db('sample_mflix');

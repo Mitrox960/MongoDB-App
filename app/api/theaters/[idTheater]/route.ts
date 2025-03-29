@@ -83,7 +83,7 @@ export async function GET(request: Request, { params }: { params: any }) {
  *       500:
  *         description: Internal Server Error
  */
-export async function PUT(request: Request, { params }: { params: { idTheater: string } }) {
+export async function PUT(request: Request, { params }: { params: any }) {
   try {
     const client: MongoClient = await clientPromise;
     const db: Db = client.db('sample_mflix');
@@ -145,7 +145,7 @@ export async function PUT(request: Request, { params }: { params: { idTheater: s
  *       500:
  *         description: Internal Server Error
  */
-export async function DELETE(request: Request, { params }: { params: { idTheater: string } }) {
+export async function DELETE(request: Request, { params }: { params: any }) {
   try {
     const client: MongoClient = await clientPromise;
     const db: Db = client.db('sample_mflix');
