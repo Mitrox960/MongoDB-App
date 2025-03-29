@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\api",
+    "\\app\\api\\movies",
+    "\\app\\app-demo",
+    "\\lib",
+    "\\pages",
+    "\\public",
+    "\\styles"
+  ],
+  "SelectedNode": "\\app\\api\\movies\\route.ts",
+  "PreviewInSolutionExplorer": false
+}
