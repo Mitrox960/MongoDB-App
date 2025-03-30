@@ -87,7 +87,7 @@ Avant de commencer, assurez-vous d'avoir installé **Node.js** et **npm** sur vo
 
  Une fois le code poussé dans la branche **main** du dépôt Git, **Vercel** (qui est directement lié à notre repository) lancera automatiquement une pipeline pour mettre en production le code.
 
-On peut le retrouver sur cet URL : https://mongo-db-1kziwha7z-damiens-projects-a9936fcd.vercel.app/login
+Pour ma version en prod, on peut le retrouver sur cet URL : https://mongo-db-1kziwha7z-damiens-projects-a9936fcd.vercel.app/login
 
 Note : L'authentification est activée. Le middleware protège l'accès aux pages sécurisées et nécessite une authentification via JWT, mais les endpoints API peuvent être testés sans connexion à l'aide de Postman.
 
