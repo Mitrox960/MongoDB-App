@@ -1,85 +1,107 @@
 # MongoDB-App
 
-## Example app using MongoDB
+# DEVE844 - Développement et services Cloud - Atelier Partie 2 - Projet
 
-[MongoDB](https://www.mongodb.com/) is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. This example will show you how to connect to and use MongoDB as your backend for your Next.js app.
+## Contexte du projet
 
-If you want to learn more about MongoDB, visit the following pages:
+L'application **MFLIX** fournit des informations cinématographiques en ligne, similaire à Allociné, et est utilisée pour la gestion des films, des utilisateurs et des commentaires. L'objectif de ce projet est de migrer la base de données de l'application depuis des serveurs physiques vers le cloud, en utilisant **MongoDB Atlas**. Le front-end reste inchangé et fonctionne toujours via une **API**.
 
-- [MongoDB Atlas](https://mongodb.com/atlas)
-- [MongoDB Documentation](https://docs.mongodb.com/)
+Votre rôle consiste à mettre en place le socle serveur et la base de données pour interagir avec l'interface via une **API REST**.
 
-## Deploy your own
+### API Contract
 
-Once you have access to the environment variables you'll need, deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-mongodb)
+Tous les endpoints sont disponibles sur le swagger : 
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?project-name=with-mongodb&repository-name=with-mongodb&repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-mongodb&integration-ids=oac_jnzmjqM10gllKmSrG0SGrHOH)
+En prod : https://mongo-db-1kziwha7z-damiens-projects-a9936fcd.vercel.app/api-doc
+En local : http://localhost:3000/api-doc
 
-## How to use
+---
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## Stack utilisée
 
-```bash
-npx create-next-app --example with-mongodb with-mongodb-app
-```
+Le projet utilise les technologies suivantes :
 
-```bash
-yarn create next-app --example with-mongodb with-mongodb-app
-```
+- **Backend** : **Next.js** (v13+) pour la gestion des routes API REST et des pages côté serveur.
+- **Base de données** : **MongoDB** avec **MongoDB Atlas** pour un stockage cloud sécurisé et évolutif.
+- **Authentification** : Utilisation de **JWT** pour gérer l'authentification et la gestion des sessions utilisateur.
+- **Hébergement** : Déploiement cloud via **Vercel** (pour Next.js) et gestion des services via MongoDB Atlas.
+- **Sécurité** : Connexion sécurisée via **HTTPS** et gestion des tokens JWT pour protéger les API.
 
-```bash
-pnpm create next-app --example with-mongodb with-mongodb-app
-```
+---
 
-## Configuration
+## Mise en place du projet
 
-### Set up a MongoDB database
+### Prérequis
 
-Set up a MongoDB database either locally or with [MongoDB Atlas for free](https://mongodb.com/atlas).
+Avant de commencer, assurez-vous d'avoir installé **Node.js** et **npm** sur votre machine.
 
-### Set up environment variables
+---
 
-Copy the `env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
+### Installation du projet
 
-```bash
-cp .env.local.example .env.local
-```
+1. **Cloner le projet depuis le dépôt Git** :
+    ```bash
+    git clone https://github.com/Mitrox960/MongoDB-App.git
+    ```
 
-Set each variable on `.env.local`:
+2. **Installer les dépendances nécessaires avec npm** :
+    ```bash
+    npm install
+    ```
 
-- `MONGODB_URI` - Your MongoDB connection string. If you are using [MongoDB Atlas](https://mongodb.com/atlas) you can find this by clicking the "Connect" button for your cluster.
+3. **Lancer le serveur local en mode développement** :
+    ```bash
+    npm run dev
+    ```
 
-### Run Next.js in development mode
+4. Accédez à l'application en ouvrant un navigateur à l'URL suivante :  
+    [http://localhost:3000](http://localhost:3000).
 
-```bash
-npm install
-npm run dev
-# or
-yarn install
-yarn dev
-# or
-pnpm install
-pnpm dev
-```
+---
 
-Your app should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+### Connexion à MongoDB Atlas
 
-You will either see a message stating "You are connected to MongoDB" or "You are NOT connected to MongoDB". Ensure that you have provided the correct `MONGODB_URI` environment variable.
+#### Qu'est-ce que MongoDB Atlas ?
 
-When you are successfully connected, you can refer to the [MongoDB Node.js Driver docs](https://mongodb.github.io/node-mongodb-native/3.4/tutorials/collections/) for further instructions on how to query your database.
+[MongoDB Atlas](https://mongodb.com/atlas) est une plateforme cloud gérée pour MongoDB, qui offre des services de déploiement, de gestion et de sécurité pour les bases de données MongoDB. Elle permet une gestion simplifiée, une surveillance en temps réel, une sécurité renforcée et une haute disponibilité.
 
-## Deploy on Vercel
+---
 
-You can deploy this app to the cloud with [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+#### Setup de MongoDB Atlas
 
-#### Deploy Your Local Project
+1. Créez un **cluster** sur MongoDB Atlas (plan gratuit disponible).
+2. Créez un utilisateur et générez les identifiants de connexion à la base de données.
+3. Configurez l'accès réseau pour permettre à l'application de se connecter au cluster via l'interface **Network Access**.
+4. Utilisez l'URI MongoDB dans votre fichier `.env.local` pour connecter l'application à votre base de données :
 
-To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [import to Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example).
+    ```bash
+    MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<db-name>?retryWrites=true&w=majority
+    ```
 
-**Important**: When you import your project on Vercel, make sure to click on **Environment Variables** and set them to match your `.env.local` file.
+5. Créez la base de données **sample_mflix**.
+6. Ajoutez la collection **users** pour la gestion de l'authentification.
 
-#### Deploy from Our Template
+---
 
-Alternatively, you can deploy using our template by clicking on the Deploy button below.
+## Déploiement
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?project-name=with-mongodb&repository-name=with-mongodb&repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-mongodb&integration-ids=oac_jnzmjqM10gllKmSrG0SGrHOH)
+ Une fois le code poussé dans la branche **main** du dépôt Git, **Vercel** (qui est directement lié à notre repository) lancera automatiquement une pipeline pour mettre en production le code.
+
+On peut le retrouver sur cet URL : https://mongo-db-1kziwha7z-damiens-projects-a9936fcd.vercel.app/login
+
+Note : L'authentification est activée. Le middleware protège l'accès aux pages sécurisées et nécessite une authentification via JWT, mais les endpoints API peuvent être testés sans connexion à l'aide de Postman.
+
+### Comment Vercel fonctionne ?
+
+Lorsque vous poussez votre code sur la branche **main** de votre repository Git (par exemple, GitHub), **Vercel** détecte automatiquement le changement et déclenche une pipeline de déploiement. Ce processus comprend la construction de l'application, l'exécution des tests, et enfin, le déploiement sur l'infrastructure cloud de Vercel. Vous avez ainsi une application déployée en production en quelques minutes seulement.
+
+1. **https://github.com/Mitrox960/MongoDB-App.git** : Vercel s'intègre directement avec votre dépôt Git (GitHub, GitLab, Bitbucket). Il vous suffit de connecter votre compte Vercel à votre service Git pour que l'intégration se fasse automatiquement.
+   
+2. **Push sur la branche `main`** : Dès que vous poussez votre code vers la branche **main** du repository, Vercel détecte le changement et démarre le processus de déploiement.
+   
+3. **Build et déploiement** : Vercel va construire votre application, installer les dépendances, et exécuter les scripts définis dans votre configuration (comme `npm run build`). Une fois le processus terminé, votre application sera disponible en ligne.
+
+4. **Visualisation du déploiement** : Après chaque push, Vercel vous fournit un lien vers l'URL de prévisualisation de votre déploiement. Ce lien peut être utilisé pour tester votre application avant de mettre à jour la version en production.
+
+5. **Mise en production** : Une fois que vous êtes satisfait du déploiement, vous pouvez mettre la version en production via l'interface Vercel.
+
