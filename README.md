@@ -89,7 +89,7 @@ Avant de commencer, assurez-vous d'avoir installé **Node.js** et **npm** sur vo
 
 Pour ma version en prod, on peut le retrouver sur cet URL : https://mongo-db-1kziwha7z-damiens-projects-a9936fcd.vercel.app/login
 
-Note : L'authentification est activée. Le middleware protège l'accès aux pages sécurisées et nécessite une authentification via JWT, mais les endpoints API peuvent être testés sans connexion à l'aide de Postman.
+Note : L'authentification est activée. Le middleware protège l'accès aux pages sécurisées et nécessite une authentification via JWT, mais les endpoints API peuvent être testés sans connexion à l'aide de Postman. Les routes d'authentification (login, logout, register, refresh) sont fonctionnelles. Le register créée un compte dans la collection users (s'il n'existe pas). Login permet de se connecter et récupérer un token. Celui-ci est stocké dans un cookie. Refresh permet de remettre la durée de vie au token stocké dans le cookie à 15 min. Et Logout permet de clear le token des cookies. Et donc on n'est plus connecté.
 
 ### Comment Vercel fonctionne ?
 
